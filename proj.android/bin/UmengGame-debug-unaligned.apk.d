@@ -1,0 +1,26 @@
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/UmengGame-debug-unaligned.apk : \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/UmengGame.ap_ \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes.dex \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/cocos2d/cocos/platform/android/java/bin/classes.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_facebook.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_email.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_sms.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/mta-sdk-1.6.2.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/android-support-v4.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/open_sdk_r5756_lite.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_twitter.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_whatsapp.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/umeng_social_shareboard.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_Sina_Full.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/umeng_social_net.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/umeng_social_shareview.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/umeng_shareboard_widget.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_QQ_Full.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_tencentWB.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/umeng_social_api.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/libammsdk.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_WeiXin_Full.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/weiboSDKCore_3.1.4.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/armeabi/gdbserver \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/armeabi/libcocos2dcpp.so \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/armeabi/libweibosdkcore.so \
