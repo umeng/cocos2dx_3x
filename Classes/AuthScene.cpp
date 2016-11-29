@@ -117,7 +117,6 @@ bool Auth::init()
    
     pMenu->addChild(delfacebookButton, 1);
     pMenu->addChild(deltwitterButton, 1);
-    pMenu->addChild(twitterButton, 1);
     pMenu->setPosition(Size::ZERO);
 
     this->addChild(pMenu, 1);
