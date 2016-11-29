@@ -4,9 +4,13 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/UMSBaeViewController.h</key>
+		<data>
+		LobHNRcxueYHcQ47Go8rUPFudjQ=
+		</data>
 		<key>Headers/UMSocialCore.h</key>
 		<data>
-		3vE7kVvXPNPqSeFZDX2a04W5dSA=
+		h9eQjAgjSxIwiW+aziuaUMnWAkk=
 		</data>
 		<key>Headers/UMSocialCoreImageUtils.h</key>
 		<data>
@@ -18,11 +22,11 @@
 		</data>
 		<key>Headers/UMSocialGlobal.h</key>
 		<data>
-		yxwLSWacMa/00fdqy5I39fXh0e4=
+		tkOUhEqXZMUT89lCEWCZMDMuF2k=
 		</data>
 		<key>Headers/UMSocialHandler.h</key>
 		<data>
-		wsuYY7J68t76044kt0DsLlBDgxU=
+		st+iwnC+/qJIDiv5J07BvvtEFzE=
 		</data>
 		<key>Headers/UMSocialImageUtil.h</key>
 		<data>
@@ -30,19 +34,19 @@
 		</data>
 		<key>Headers/UMSocialManager.h</key>
 		<data>
-		MWp3K88a0e37dtwRl+sMzDeIOkg=
+		OFptlwwQ9Ya4cApg2egC7SE4qZk=
 		</data>
 		<key>Headers/UMSocialMessageObject.h</key>
 		<data>
-		160k7ZZE5keyO8J6oXMENZTf92E=
+		0tGHyaIxIqGy814sQT9vAYONLTw=
 		</data>
 		<key>Headers/UMSocialPlatformConfig.h</key>
 		<data>
-		8NcVAOSyHm5Eg7/Z16SLl3/I5h8=
+		q1eBBlb0uJaIDUy92zITMQ8zhhc=
 		</data>
 		<key>Headers/UMSocialPlatformProvider.h</key>
 		<data>
-		en4oaLfwga9gT2hHRR6/fgkYHWg=
+		7EmcT0whf7P+RZlHFHOf23LzZNY=
 		</data>
 		<key>Headers/UMSocialResponse.h</key>
 		<data>
@@ -50,15 +54,15 @@
 		</data>
 		<key>Headers/UMSocialSOAuthViewController.h</key>
 		<data>
-		yHPsyFc4hC8ZdpZlGM3etDiCw9A=
+		/5aQ7PyO78XkaILjpZ0X/3203Fc=
 		</data>
 		<key>Headers/UMSocialShareEditViewController.h</key>
 		<data>
-		3Fxjj9GtyIPE6kNnxzHnVoyOZKo=
+		K0z/pJwTwKzJEDSPFGO2WNLScyA=
 		</data>
 		<key>Headers/UMSociallogMacros.h</key>
 		<data>
-		djHE0z/kV1Ph+TtKS/U42WYr8nQ=
+		mQ+g4GFR2RxLF0JwpHilZ2rNJEA=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -71,9 +75,13 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Headers/UMSBaeViewController.h</key>
+		<data>
+		LobHNRcxueYHcQ47Go8rUPFudjQ=
+		</data>
 		<key>Headers/UMSocialCore.h</key>
 		<data>
-		3vE7kVvXPNPqSeFZDX2a04W5dSA=
+		h9eQjAgjSxIwiW+aziuaUMnWAkk=
 		</data>
 		<key>Headers/UMSocialCoreImageUtils.h</key>
 		<data>
@@ -85,11 +93,11 @@
 		</data>
 		<key>Headers/UMSocialGlobal.h</key>
 		<data>
-		yxwLSWacMa/00fdqy5I39fXh0e4=
+		tkOUhEqXZMUT89lCEWCZMDMuF2k=
 		</data>
 		<key>Headers/UMSocialHandler.h</key>
 		<data>
-		wsuYY7J68t76044kt0DsLlBDgxU=
+		st+iwnC+/qJIDiv5J07BvvtEFzE=
 		</data>
 		<key>Headers/UMSocialImageUtil.h</key>
 		<data>
@@ -97,19 +105,19 @@
 		</data>
 		<key>Headers/UMSocialManager.h</key>
 		<data>
-		MWp3K88a0e37dtwRl+sMzDeIOkg=
+		OFptlwwQ9Ya4cApg2egC7SE4qZk=
 		</data>
 		<key>Headers/UMSocialMessageObject.h</key>
 		<data>
-		160k7ZZE5keyO8J6oXMENZTf92E=
+		0tGHyaIxIqGy814sQT9vAYONLTw=
 		</data>
 		<key>Headers/UMSocialPlatformConfig.h</key>
 		<data>
-		8NcVAOSyHm5Eg7/Z16SLl3/I5h8=
+		q1eBBlb0uJaIDUy92zITMQ8zhhc=
 		</data>
 		<key>Headers/UMSocialPlatformProvider.h</key>
 		<data>
-		en4oaLfwga9gT2hHRR6/fgkYHWg=
+		7EmcT0whf7P+RZlHFHOf23LzZNY=
 		</data>
 		<key>Headers/UMSocialResponse.h</key>
 		<data>
@@ -117,15 +125,15 @@
 		</data>
 		<key>Headers/UMSocialSOAuthViewController.h</key>
 		<data>
-		yHPsyFc4hC8ZdpZlGM3etDiCw9A=
+		/5aQ7PyO78XkaILjpZ0X/3203Fc=
 		</data>
 		<key>Headers/UMSocialShareEditViewController.h</key>
 		<data>
-		3Fxjj9GtyIPE6kNnxzHnVoyOZKo=
+		K0z/pJwTwKzJEDSPFGO2WNLScyA=
 		</data>
 		<key>Headers/UMSociallogMacros.h</key>
 		<data>
-		djHE0z/kV1Ph+TtKS/U42WYr8nQ=
+		mQ+g4GFR2RxLF0JwpHilZ2rNJEA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>

@@ -8,7 +8,7 @@
 
 #include "UmSocialControllerIOS.h"
 #import <UIKit/UIKit.h>
-#import "UMSocialUIManager.h"
+#import <UShareUI/UShareUI.h>
 #import <UMSocialCore/UMSocialCore.h>
 //#import "UMSocialTencentWeiboHandler.h"
 
@@ -241,9 +241,9 @@ id getUIImageFromFilePath(const char* imagePath){
     return returnImage;
 }
  void UmSocialControllerIOS::openCustomShareBoard(vector<int>* platform, BoardEventHandler callback){
-       [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMShareMenuSelectionView *shareSelectionView, UMSocialPlatformType platformType) {
-           callback(getPlatformself(platformType));
-       }];
+     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+         callback(getPlatformself(platformType));
+     }];
 }
 void UmSocialControllerIOS::openShareWithImagePath(vector<int>* platform, const char* text, const char* title,const char* imagePath,const char* targeturl,ShareEventHandler callback){
        id image = nil;
@@ -270,6 +270,7 @@ void UmSocialControllerIOS::openShareWithImagePath(vector<int>* platform, const 
         
     }
 
+    /*
     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMShareMenuSelectionView *shareSelectionView, UMSocialPlatformType platformType) {
         
         [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:getViewController() completion:^(id data, NSError *error) {
@@ -296,6 +297,37 @@ void UmSocialControllerIOS::openShareWithImagePath(vector<int>* platform, const 
             }
             callback(getPlatformself(platformType), code,string([message UTF8String]));
         
+        }];
+        
+    }];
+     */
+    
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        
+        [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:getViewController() completion:^(id data, NSError *error) {
+            int code;
+            NSString* message;
+            if (error) {
+                code = (int)error.code;
+                NSLog(@"************Share fail with error %@*********",error);
+                message =@"************Share fail with error %@*********";
+            }else{
+                code = 200;
+                if ([data isKindOfClass:[UMSocialShareResponse class]]) {
+                    UMSocialShareResponse *resp = data;
+                    //分享结果消息
+                    NSLog(@"response message is %@",resp.message);
+                    //第三方原始返回的数据
+                    NSLog(@"response originalResponse data is %@",resp.originalResponse);
+                    code = 200;
+                    message =@"success";
+                }else{
+                    NSLog(@"response data is %@",data);
+                    message =@"unkonw fail";
+                }
+            }
+            callback(getPlatformself(platformType), code,string([message UTF8String]));
+            
         }];
         
     }];
