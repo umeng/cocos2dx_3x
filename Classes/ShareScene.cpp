@@ -202,8 +202,8 @@ void Share::boardShare(Ref* pSender) {
     platforms->push_back(WEIXIN_CIRCLE);
     platforms->push_back(TWITTER);
     platforms->push_back(FACEBOOK);
-    sdk->setPlatforms(platforms);
-    sdk->openShare(platforms, "来自分享面板", "title", "", "",share_selector(shareCallback));
+ 
+    sdk->openShare(platforms, "来自分享面板", "title" ,"https://dev.umeng.com/images/tab2_1.png","https://wsq.umeng.com/",share_selector(shareCallback));
 
 }
 void Share::boardcustomShare(Ref* pSender) {
@@ -225,7 +225,6 @@ void Share::boardcustomShare(Ref* pSender) {
     platforms->push_back(WEIXIN_CIRCLE);
     platforms->push_back(TWITTER);
     platforms->push_back(FACEBOOK);
-    sdk->setPlatforms(platforms);
     sdk->openCustomShare(platforms, board_selector(boardCallback));
     
 }

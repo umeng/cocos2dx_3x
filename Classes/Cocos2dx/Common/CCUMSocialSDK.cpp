@@ -78,28 +78,28 @@ CCUMSocialSDK* CCUMSocialSDK::create() {
  * 设置SDK中的所有平台
  *@param    platforms SDK中包含的所有平台
  */
-void CCUMSocialSDK::setPlatforms(vector<int>* platforms) {
-    if (platforms != NULL && platforms->size() > 0) {
-        mPlatforms = platforms;
-    } else {
-        mPlatforms->push_back(SINA);
-        mPlatforms->push_back(TENCENT_WEIBO);
-        mPlatforms->push_back(RENREN);
-        mPlatforms->push_back(DOUBAN);
-        mPlatforms->push_back(SMS);
-        mPlatforms->push_back(EMAIL);
-    }
-    
-#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
-    // 设置平台
-    setSocialPlatforms(mPlatforms);
-#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
-    
-    
-   // UmSocialControllerIOS::setSharePlatforms(mPlatforms);
-#endif
-    
-}
+//void CCUMSocialSDK::setPlatforms(vector<int>* platforms) {
+//    if (platforms != NULL && platforms->size() > 0) {
+//        mPlatforms = platforms;
+//    } else {
+//        mPlatforms->push_back(SINA);
+//        mPlatforms->push_back(TENCENT_WEIBO);
+//        mPlatforms->push_back(RENREN);
+//        mPlatforms->push_back(DOUBAN);
+//        mPlatforms->push_back(SMS);
+//        mPlatforms->push_back(EMAIL);
+//    }
+//    
+//#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+//    // 设置平台
+//    setSocialPlatforms(mPlatforms);
+//#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+//    
+//    
+//   // UmSocialControllerIOS::setSharePlatforms(mPlatforms);
+//#endif
+//    
+//}
 
 
 
@@ -425,18 +425,18 @@ void CCUMSocialSDK::setLogEnable(bool flag) {
 //#endif
 //}
 
-/*
- * 设置平台的sso授权，目前支持的平台有新浪微博、人人网、腾讯微博三个平台. 在设置SSO时请确保您在友盟官方绑定了这些平台的app id, app key等信息.
- * 且人人网的app id, app key必须在本地先通过setRenrenAppInfo来设置.
- * @param  platform 要支持SSO授权的平台
- * @param redirectURL 该授权平台的回调URL，该URL需要和开放平台应用管理上设置的回调URL一致。
- */
-void CCUMSocialSDK::setSsoAuthorization(int platform, const char *redirectURL) {
-#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
-	// TODO
-	supportSsoAuthorization(platform, redirectURL);
-
-#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
-	//UmSocialControllerIOS::openSSOAuthorization(platform, redirectURL);
-#endif
-}
+///*
+// * 设置平台的sso授权，目前支持的平台有新浪微博、人人网、腾讯微博三个平台. 在设置SSO时请确保您在友盟官方绑定了这些平台的app id, app key等信息.
+// * 且人人网的app id, app key必须在本地先通过setRenrenAppInfo来设置.
+// * @param  platform 要支持SSO授权的平台
+// * @param redirectURL 该授权平台的回调URL，该URL需要和开放平台应用管理上设置的回调URL一致。
+// */
+//void CCUMSocialSDK::setSsoAuthorization(int platform, const char *redirectURL) {
+//#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+//	// TODO
+//	supportSsoAuthorization(platform, redirectURL);
+//
+//#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+//	//UmSocialControllerIOS::openSSOAuthorization(platform, redirectURL);
+//#endif
+//}

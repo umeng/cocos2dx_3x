@@ -114,7 +114,7 @@ public:
 	 * 设置SDK的target url, 即用户点击某条分享时跳转到的目标页面
 	 * @param url 用户点击某条分享时跳转到的目标页面通常为app的主页或者下载链接等
 	 */
-	void setTargetUrl(const char* targetUrl);
+	//void setTargetUrl(const char* targetUrl);
 
 	/**
 	 * 设置QQ和QQ空间的app id, 两个平台共用套app id, appKey
@@ -209,12 +209,12 @@ public:
 	 * @param  platform 要支持SSO授权的平台
      * @param redirectURL 该授权平台的回调URL，该URL需要和开放平台应用管理上设置的回调URL一致
 	 */
-	void setSsoAuthorization(int platform, const char *redirectURL);
+	//void setSsoAuthorization(int platform, const char *redirectURL);
     /**
      * 设置SDK中的所有平台
      *@param    platforms SDK中包含的所有平台
      */
-    void setPlatforms(vector<int>* platforms);
+  //  void setPlatforms(vector<int>* platforms);
 private:
 	static CCUMSocialSDK *_instance;
 	vector<int>* mPlatforms;
