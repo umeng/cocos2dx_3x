@@ -13,11 +13,14 @@
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_alipay.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_back_icon.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_btn_bg.xml \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_copy.png \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_copyurl.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_delete.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_douban.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_edit_bg.xml \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_facebook.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_fav.png \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_fbmessage.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_gmail.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_instagram.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/drawable/umeng_socialize_menu_default.png \
@@ -56,6 +59,7 @@
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/values/strings.xml \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/values/umeng_socialize_colors.xml \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/values/umeng_socialize_facebook_strings.xml \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/values/umeng_socialize_shareview_strings.xml \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/values/umeng_socialize_strings.xml \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/res/values/umeng_socialize_style.xml \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/closenormal.png \
@@ -64,10 +68,13 @@
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/sina_web_default.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/umeng_socialize_alipay.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/umeng_socialize_back_icon.png \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/umeng_socialize_copy.png \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/umeng_socialize_copyurl.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/umeng_socialize_delete.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/umeng_socialize_douban.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/umeng_socialize_facebook.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/umeng_socialize_fav.png \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/umeng_socialize_fbmessage.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/umeng_socialize_gmail.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/umeng_socialize_instagram.png \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/res/drawable/umeng_socialize_menu_default.png \
