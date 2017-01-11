@@ -76,8 +76,8 @@ bool Share::init()
                                                           "CloseSelected.png",
                                                           CC_CALLBACK_1(Share::menuCloseCallback, this));
     
-    pCloseItem->setPosition(Vec2(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
-                                origin.y + pCloseItem->getContentSize().height/2));
+    pCloseItem->setPosition(Vec2(origin.x + visibleSize.width - pCloseItem->getContentSize().width ,
+                                origin.y + pCloseItem->getContentSize().height));
     
 Menu* pMenu = Menu::create();
     pMenu->addChild(qqButton, 1);
@@ -154,9 +154,11 @@ void boardCallback(int platform) {
     }
     
 }
-//void shareCallBack(int platform, int stCode, const char * errorMsg) {
-//    printf("%s\n", errorMsg);
-//}
+void boardDismissCallback() {
+    
+    log("dismiss");
+    
+}
 void Share::qqShare(Ref* pSender) {
     	CCUMSocialSDK *sdk = CCUMSocialSDK::create();
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
@@ -202,7 +204,7 @@ void Share::boardShare(Ref* pSender) {
     platforms->push_back(WEIXIN_CIRCLE);
     platforms->push_back(TWITTER);
     platforms->push_back(FACEBOOK);
- 
+    sdk->setBoardDismissCallback(boarddismiss_selector(boardDismissCallback));
     sdk->openShare(platforms, "来自分享面板", "title" ,"https://dev.umeng.com/images/tab2_1.png","https://wsq.umeng.com/",share_selector(shareCallback));
 
 }
@@ -225,6 +227,7 @@ void Share::boardcustomShare(Ref* pSender) {
     platforms->push_back(WEIXIN_CIRCLE);
     platforms->push_back(TWITTER);
     platforms->push_back(FACEBOOK);
+    sdk->setBoardDismissCallback(boarddismiss_selector(boardDismissCallback));
     sdk->openCustomShare(platforms, board_selector(boardCallback));
     
 }

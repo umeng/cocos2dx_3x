@@ -70,8 +70,8 @@ bool Entrance::init()
                                                           "CloseSelected.png",
                                                            CC_CALLBACK_1(Entrance::menuCloseCallback, this));
     
-    pCloseItem->setPosition(Vec2(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
-                                origin.y + pCloseItem->getContentSize().height/2));
+    pCloseItem->setPosition(Vec2(origin.x + visibleSize.width - pCloseItem->getContentSize().width ,
+                                origin.y + pCloseItem->getContentSize().height));
    
     Menu* pMenu = Menu::create();
     pMenu->addChild(getInfoButton, 1);
@@ -109,6 +109,7 @@ void Entrance::gotoGetPlatform(Ref* pSender) {
 }
 void Entrance::menuCloseCallback(Ref* pSender)
 {
+    log("end");
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
     CCMessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
 #else

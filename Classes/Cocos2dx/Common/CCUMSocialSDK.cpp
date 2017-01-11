@@ -191,6 +191,15 @@ void CCUMSocialSDK::openShare(vector<int>* platforms,const char* text, const cha
 	UmSocialControllerIOS::openShareWithImagePath(platforms,text,title,imgName,targeturl,callback);
 #endif
 }
+void CCUMSocialSDK::setBoardDismissCallback(BoardDismissEventHandler callback){
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+    
+    setDismissCallback(callback);
+    
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_IOS
+   	UmSocialControllerIOS::setDismissCallback(callback);
+#endif
+}
 void CCUMSocialSDK::openShareBoard(vector<int>* platforms,const char* text, const char* title,const char* imgName,const char* targeturl) {
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
     // 设置分享内容

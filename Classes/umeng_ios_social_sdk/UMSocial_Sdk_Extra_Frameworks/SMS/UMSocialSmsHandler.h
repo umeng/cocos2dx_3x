@@ -1,5 +1,5 @@
 //
-//  UMSocialDoubanHandler.h
+//  UMSocialSmsHandler.h
 //  SocialSDK
 //
 //  Created by umeng on 16/4/23.
@@ -8,6 +8,6 @@
 
 #import <UMSocialCore/UMSocialCore.h>
 
-@interface UMSocialDoubanHandler : UMSocialHandler
+@interface UMSocialSmsHandler : UMSocialHandler
 
 @end

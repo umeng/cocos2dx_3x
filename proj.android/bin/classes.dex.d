@@ -1,14 +1,15 @@
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes.dex : \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCApp.class \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$1.class \
-/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$10$1.class \
-/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$10$2.class \
-/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$10$3.class \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$10.class \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$11$1.class \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$11$2.class \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$11$3.class \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$11.class \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$12$1.class \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$12$2.class \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$12$3.class \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$12.class \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$2.class \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$3$1$1.class \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/classes/com/umeng/social/CCUMSocialController$3$1$2.class \

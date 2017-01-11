@@ -78,7 +78,6 @@
 		7B17FFBF1D6EEA2A00316B84 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B17FFBE1D6EEA2A00316B84 /* MediaPlayer.framework */; };
 		7B17FFC11D6EEA3500316B84 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B17FFC01D6EEA3500316B84 /* GameController.framework */; };
 		7B17FFC31D6EEA8800316B84 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B17FFC21D6EEA8800316B84 /* libsqlite3.tbd */; };
-		7B90EBAF1DC0524A00CE7497 /* libSocialDouban.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B90EB701DC0524A00CE7497 /* libSocialDouban.a */; };
 		7B90EBB01DC0524A00CE7497 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B90EB731DC0524A00CE7497 /* Bolts.framework */; };
 		7B90EBB11DC0524A00CE7497 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B90EB751DC0524A00CE7497 /* FBSDKCoreKit.framework */; };
 		7B90EBB21DC0524A00CE7497 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B90EB761DC0524A00CE7497 /* FBSDKLoginKit.framework */; };
@@ -87,7 +86,6 @@
 		7B90EBB51DC0524A00CE7497 /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B90EB7B1DC0524A00CE7497 /* libSocialQQ.a */; };
 		7B90EBB61DC0524A00CE7497 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B90EB7C1DC0524A00CE7497 /* TencentOpenAPI.framework */; };
 		7B90EBB71DC0524A00CE7497 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7B90EB7D1DC0524A00CE7497 /* TencentOpenApi_IOS_Bundle.bundle */; };
-		7B90EBB81DC0524A00CE7497 /* libSocialRenren.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B90EB801DC0524A00CE7497 /* libSocialRenren.a */; };
 		7B90EBB91DC0524A00CE7497 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B90EB831DC0524A00CE7497 /* libSocialSina.a */; };
 		7B90EBBA1DC0524A00CE7497 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B90EB841DC0524A00CE7497 /* libWeiboSDK.a */; };
 		7B90EBBB1DC0524A00CE7497 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7B90EB8F1DC0524A00CE7497 /* WeiboSDK.bundle */; };
@@ -224,8 +222,6 @@
 		7B17FFBE1D6EEA2A00316B84 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		7B17FFC01D6EEA3500316B84 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		7B17FFC21D6EEA8800316B84 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
-		7B90EB701DC0524A00CE7497 /* libSocialDouban.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialDouban.a; sourceTree = "<group>"; };
-		7B90EB711DC0524A00CE7497 /* UMSocialDoubanHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialDoubanHandler.h; sourceTree = "<group>"; };
 		7B90EB731DC0524A00CE7497 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		7B90EB741DC0524A00CE7497 /* facebook_ios_sdk_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebook_ios_sdk_Prefix.pch; sourceTree = "<group>"; };
 		7B90EB751DC0524A00CE7497 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -237,8 +233,6 @@
 		7B90EB7C1DC0524A00CE7497 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		7B90EB7D1DC0524A00CE7497 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		7B90EB7E1DC0524A00CE7497 /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
-		7B90EB801DC0524A00CE7497 /* libSocialRenren.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialRenren.a; sourceTree = "<group>"; };
-		7B90EB811DC0524A00CE7497 /* UMSocialRenrenHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialRenrenHandler.h; sourceTree = "<group>"; };
 		7B90EB831DC0524A00CE7497 /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
 		7B90EB841DC0524A00CE7497 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		7B90EB851DC0524A00CE7497 /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
@@ -310,7 +304,6 @@
 				7B17FFC31D6EEA8800316B84 /* libsqlite3.tbd in Frameworks */,
 				7B90EBBD1DC0524A00CE7497 /* libSocialTwitter.a in Frameworks */,
 				7B90EBB21DC0524A00CE7497 /* FBSDKLoginKit.framework in Frameworks */,
-				7B90EBB81DC0524A00CE7497 /* libSocialRenren.a in Frameworks */,
 				7B17FFC11D6EEA3500316B84 /* GameController.framework in Frameworks */,
 				7B90EBC51DC0524A00CE7497 /* UMSocialNetwork.framework in Frameworks */,
 				7B17FFBF1D6EEA2A00316B84 /* MediaPlayer.framework in Frameworks */,
@@ -326,7 +319,6 @@
 				7B17FFAF1D6EE90100316B84 /* CoreGraphics.framework in Frameworks */,
 				7B17FFAD1D6EE8EF00316B84 /* AVFoundation.framework in Frameworks */,
 				7B90EBB91DC0524A00CE7497 /* libSocialSina.a in Frameworks */,
-				7B90EBAF1DC0524A00CE7497 /* libSocialDouban.a in Frameworks */,
 				7B17FFAB1D6EE8E400316B84 /* AudioToolbox.framework in Frameworks */,
 				7B17FFA91D6EE8DA00316B84 /* CoreTelephony.framework in Frameworks */,
 				7B17FFA71D6EE88200316B84 /* Accounts.framework in Frameworks */,
@@ -561,24 +553,13 @@
 		7B90EB6E1DC0524A00CE7497 /* UMSocial_Sdk_Extra_Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7B90EB6F1DC0524A00CE7497 /* Douban */,
 				7B90EB721DC0524A00CE7497 /* Facebook */,
 				7B90EB7A1DC0524A00CE7497 /* QQ */,
-				7B90EB7F1DC0524A00CE7497 /* Renren */,
 				7B90EB821DC0524A00CE7497 /* Sina */,
 				7B90EB921DC0524A00CE7497 /* Twitter */,
 				7B90EB981DC0524A00CE7497 /* WeChat */,
 			);
 			path = UMSocial_Sdk_Extra_Frameworks;
-			sourceTree = "<group>";
-		};
-		7B90EB6F1DC0524A00CE7497 /* Douban */ = {
-			isa = PBXGroup;
-			children = (
-				7B90EB701DC0524A00CE7497 /* libSocialDouban.a */,
-				7B90EB711DC0524A00CE7497 /* UMSocialDoubanHandler.h */,
-			);
-			path = Douban;
 			sourceTree = "<group>";
 		};
 		7B90EB721DC0524A00CE7497 /* Facebook */ = {
@@ -604,15 +585,6 @@
 				7B90EB7E1DC0524A00CE7497 /* UMSocialQQHandler.h */,
 			);
 			path = QQ;
-			sourceTree = "<group>";
-		};
-		7B90EB7F1DC0524A00CE7497 /* Renren */ = {
-			isa = PBXGroup;
-			children = (
-				7B90EB801DC0524A00CE7497 /* libSocialRenren.a */,
-				7B90EB811DC0524A00CE7497 /* UMSocialRenrenHandler.h */,
-			);
-			path = Renren;
 			sourceTree = "<group>";
 		};
 		7B90EB821DC0524A00CE7497 /* Sina */ = {

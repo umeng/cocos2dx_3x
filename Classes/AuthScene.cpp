@@ -99,8 +99,8 @@ bool Auth::init()
                                                           "CloseSelected.png",
                                                           CC_CALLBACK_1(Auth::menuCloseCallback, this));
     
-    pCloseItem->setPosition(Vec2(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
-                                origin.y + pCloseItem->getContentSize().height/2));
+    pCloseItem->setPosition(Vec2(origin.x + visibleSize.width - pCloseItem->getContentSize().width ,
+                                origin.y + pCloseItem->getContentSize().height));
     
     Menu* pMenu = Menu::create();
     pMenu->addChild(qqButton, 1);

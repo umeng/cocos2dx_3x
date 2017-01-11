@@ -85,6 +85,8 @@ typedef void (*AuthEventHandler)(int platform, int stCode,
  
      */
 typedef void (*BoardEventHandler)(int platform);
+typedef void (*BoardDismissEventHandler)();
+
 /// 授权回调selector
 #define auth_selector(_SELECTOR) (AuthEventHandler)(&_SELECTOR)
 
@@ -94,6 +96,8 @@ typedef void (*BoardEventHandler)(int platform);
     
 /// 分享面板回调selector
 #define board_selector(_SELECTOR) (BoardEventHandler)(&_SELECTOR)
+#define boarddismiss_selector(_SELECTOR) (BoardDismissEventHandler)(&_SELECTOR)
+
 
 }
 }

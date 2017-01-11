@@ -11,19 +11,19 @@ import java.util.Map;
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 
-import com.umeng.socialize.shareboard.ShareBoardConfig;
-
+import android.R;
+import android.R.integer;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-
+import android.widget.PopupWindow.OnDismissListener;
 
 import com.umeng.socialize.Config;
 import com.umeng.socialize.ShareAction;
@@ -36,6 +36,7 @@ import com.umeng.socialize.common.ResContainer;
 import com.umeng.socialize.common.SocializeConstants;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.net.utils.SocializeNetUtils;
+import com.umeng.socialize.shareboard.ShareBoardConfig;
 import com.umeng.socialize.shareboard.SnsPlatform;
 import com.umeng.socialize.utils.Log;
 import com.umeng.socialize.utils.ShareBoardlistener;
@@ -74,7 +75,7 @@ public class CCUMSocialController {
 	private static Handler mSDKHandler = new Handler(Looper.getMainLooper());
 	private static final int DELAY_MS = 50;
 	private static String DESCRIPTOR;
-
+	private static  ShareBoardConfig config = new ShareBoardConfig();
 	// ******* 以下字段的调用都在supportPlatfrom函数中 *********
 	/**
 	 * QQ和QQ空间app id
@@ -249,12 +250,21 @@ public class CCUMSocialController {
 		Log.d(TAG, "@@@@ deleteAuthorization");
 
 	}
-
+	public static void setDismissCallback(){
+		config.setOnDismissListener(new OnDismissListener() {
+			
+			@Override
+			public void onDismiss() {
+			OnBoardDismiss();
+				
+			}
+		});
+	}
 	/**
 	 * 打开分享面板
 	 * 
-	 * @param
-	 *
+	 * @param registerCallback
+	 *            是否注册回调接口
 	 */
 	public static void openShare(final int[] platforms,final String text,final String title,final String targeturl,final String image) {
 		// 注册回调接口, 默认将分享回调注册要sdk
@@ -273,11 +283,11 @@ public class CCUMSocialController {
 			@Override
 			public void run() {
 				//自定义分享面板
-				ShareBoardConfig config = new ShareBoardConfig();
-				config.setShareboardPostion(ShareBoardConfig.SHAREBOARD_POSITION_CENTER);
-				config.setMenuItemBackgroundShape(ShareBoardConfig.BG_SHAPE_CIRCULAR); // 圆角背景
-				config.setTitleVisibility(false); // 隐藏title
-				config.setCancelButtonVisibility(false); // 隐藏取消按钮
+				
+	                config.setShareboardPostion(ShareBoardConfig.SHAREBOARD_POSITION_CENTER);
+	                config.setMenuItemBackgroundShape(ShareBoardConfig.BG_SHAPE_CIRCULAR); // 圆角背景
+	                config.setTitleVisibility(false); // 隐藏title
+	                config.setCancelButtonVisibility(false); // 隐藏取消按钮
 				// 打开分享面板
 				new ShareAction(mActivity).setDisplayList(disfinal).withText(text).setCallback(umShareListener)
 				.withTitle(title).withTargetUrl(targeturl).withMedia(getUmImage(image)).open(config);
@@ -304,7 +314,8 @@ public class CCUMSocialController {
 			@Override
 			public void run() {
 				// 打开分享面板
-				new ShareAction(mActivity).setDisplayList(disfinal).setShareboardclickCallback(shareBoardlistener).open();
+				new ShareAction(mActivity).setDisplayList(disfinal).setShareboardclickCallback(shareBoardlistener)
+				.open(config);
 			}
 		});
 
@@ -381,8 +392,8 @@ public class CCUMSocialController {
 		}else if(url.startsWith("assets")){
 			return new UMImage(mActivity, getImageFromAssetsFile(url));
 		}else if(url.startsWith("res")){
-			Log.e("xxxxxx url="+url.replace("res/",""));
-			int pic = mActivity. getResources().getIdentifier(url.replace("res/",""), "drawable",mActivity.getPackageName());
+			Log.e("xxxxxx url="+url.replace("res/", ""));
+			int pic = mActivity. getResources().getIdentifier(url.replace("res/", ""), "drawable",mActivity.getPackageName());
 			return new UMImage(mActivity, pic);
 		}else if(url.startsWith("/sdcard")){
 			return new UMImage(mActivity, new File(url));
@@ -453,7 +464,7 @@ public class CCUMSocialController {
 	/**
 	 * 获取用户信息
 	 * 
-	 *
+	 * @param text
 	 */
 	public static void getplatformInfo(final int platform) {
 		Log.e("xxxx run");
@@ -1154,6 +1165,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 	 *            平台
 	 */
 	private native static void OnBoard(int platform);
+	private native static void OnBoardDismiss();
 
 	/**
 	 * 通过整型获取对应的平台, C++中使用enum常量来代表平台
@@ -1206,6 +1218,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 		mPlatformsList.add(14, SHARE_MEDIA.SMS);
 		mPlatformsList.add(15, SHARE_MEDIA.EMAIL);
 		mPlatformsList.add(16, SHARE_MEDIA.TENCENT);
+		mPlatformsList.add(16, SHARE_MEDIA.WHATSAPP);
 	}
 
 }
