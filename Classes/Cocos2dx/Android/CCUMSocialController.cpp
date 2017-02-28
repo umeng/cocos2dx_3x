@@ -100,7 +100,7 @@ JNIEXPORT void JNICALL Java_com_umeng_social_CCUMSocialController_OnShareStart(
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_com_umeng_social_CCUMSocialController_OnBoard(
-		jint platform) {
+		JNIEnv *env, jclass clz, jint platform) {
 	if (boardCallback != NULL) {
 		// 参数1代表平台, 参数2代表状态, 比如start, cancel, complete, 参数3代表状态码, 200为成功.
 		boardCallback(platform);
@@ -114,7 +114,7 @@ JNIEXPORT void JNICALL Java_com_umeng_social_CCUMSocialController_OnBoard(
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_com_umeng_social_CCUMSocialController_OnBoardDismiss(
-		) {
+		JNIEnv *env, jclass clz) {
 	if (boardDismissCallback != NULL) {
 
 		boardDismissCallback();

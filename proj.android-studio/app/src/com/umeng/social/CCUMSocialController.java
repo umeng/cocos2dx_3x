@@ -35,6 +35,7 @@ import com.umeng.socialize.bean.StatusCode;
 import com.umeng.socialize.common.ResContainer;
 import com.umeng.socialize.common.SocializeConstants;
 import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 import com.umeng.socialize.net.utils.SocializeNetUtils;
 import com.umeng.socialize.shareboard.ShareBoardConfig;
 import com.umeng.socialize.shareboard.SnsPlatform;
@@ -46,13 +47,13 @@ import com.umeng.socialize.utils.ShareBoardlistener;
  * 友盟Social Android SDK的控制器, cocos2d-x sdk 通过jni代码调用相关的静态函数实现对应的功能.
  * 该sdk目前提供的功能有授权、分享(打开分享面板来分享、底层api分享)、删除授权、判断某个平台是否授权、设置文字分享内容、设置图片分享内容的功能,
  * 并且将结果回调给cocos2d-x sdk.
- * 
+ *
  * @author mrsimple
- * 
+ *
  */
 public class CCUMSocialController {
 
-//	/**
+	//	/**
 //	 * 友盟社会化组件控制器
 //	 */
 //	private static UMSocialService mController;
@@ -125,7 +126,7 @@ public class CCUMSocialController {
 	 *            SDK的字符串描述符
 	 */
 	private static  UMShareAPI mShareAPI = null;
-	private static 	HashMap<String , platformShareCotent> map = new HashMap<String , platformShareCotent>();   
+	private static 	HashMap<String , platformShareCotent> map = new HashMap<String , platformShareCotent>();
 	private static ShareAction openBoardAction;
 	private static ShareAction shareAction;
 	private static ArrayList<Integer> platforms = new ArrayList<Integer>();
@@ -147,7 +148,7 @@ public class CCUMSocialController {
 			throw new IllegalArgumentException(
 					"initSocialSDK函数的activity参数必须设置为Cocos2dxActivity类型, 且不为null. ");
 		}
-		
+
 		openBoardAction = new ShareAction(activity);
 		shareAction = new ShareAction(activity);
 		// mController.getConfig().closeToast();
@@ -155,19 +156,19 @@ public class CCUMSocialController {
 
 	/**
 	 * 授权回调
-	 * 
+	 *
 	 * @param requestCode
 	 * @param resultCode
 	 * @param data
 	 */
 	public static void onActivityResult(int requestCode, int resultCode,
-			Intent data) {
+										Intent data) {
 		mShareAPI.onActivityResult(requestCode, resultCode, data);
 	}
 
 	/**
 	 * 授权某个平台
-	 * 
+	 *
 	 * @param platform
 	 *            授权平台的字符串表示
 	 */
@@ -189,10 +190,10 @@ public class CCUMSocialController {
 		});
 
 	}
-	
+
 	/**
 	 * 删除平台授权
-	 * 
+	 *
 	 * @param platform
 	 *            授权平台的字符串表示
 	 */
@@ -242,6 +243,12 @@ public class CCUMSocialController {
 					public void onCancel(SHARE_MEDIA share_media, int i) {
 
 					}
+
+					@Override
+					public void onStart(SHARE_MEDIA arg0) {
+						// TODO Auto-generated method stub
+
+					}
 				});
 
 			}
@@ -252,17 +259,17 @@ public class CCUMSocialController {
 	}
 	public static void setDismissCallback(){
 		config.setOnDismissListener(new OnDismissListener() {
-			
+
 			@Override
 			public void onDismiss() {
-			OnBoardDismiss();
-				
+				OnBoardDismiss();
+
 			}
 		});
 	}
 	/**
 	 * 打开分享面板
-	 * 
+	 *
 	 * @param registerCallback
 	 *            是否注册回调接口
 	 */
@@ -283,14 +290,25 @@ public class CCUMSocialController {
 			@Override
 			public void run() {
 				//自定义分享面板
-				
-	                config.setShareboardPostion(ShareBoardConfig.SHAREBOARD_POSITION_CENTER);
-	                config.setMenuItemBackgroundShape(ShareBoardConfig.BG_SHAPE_CIRCULAR); // 圆角背景
-	                config.setTitleVisibility(false); // 隐藏title
-	                config.setCancelButtonVisibility(false); // 隐藏取消按钮
+
+				config.setShareboardPostion(ShareBoardConfig.SHAREBOARD_POSITION_CENTER);
+				config.setMenuItemBackgroundShape(ShareBoardConfig.BG_SHAPE_CIRCULAR); // 圆角背景
+				config.setTitleVisibility(false); // 隐藏title
+				config.setCancelButtonVisibility(false); // 隐藏取消按钮
 				// 打开分享面板
-				new ShareAction(mActivity).setDisplayList(disfinal).withText(text).setCallback(umShareListener)
-				.withTitle(title).withTargetUrl(targeturl).withMedia(getUmImage(image)).open(config);
+				ShareAction shareAction = new ShareAction(mActivity);
+				if (TextUtils.isEmpty(targeturl)) {
+					shareAction.setDisplayList(disfinal).withText(text).setCallback(umShareListener)
+							.withMedia(getUmImage(image)).open(config);
+				}else {
+					UMWeb web = new UMWeb(targeturl);
+					web.setThumb(getUmImage(image));
+					web.setTitle(title);
+					web.setDescription(text);
+					shareAction.setDisplayList(disfinal).withText(text).setCallback(umShareListener)
+							.withMedia(web).open(config);
+				}
+
 			}
 		});
 
@@ -315,7 +333,7 @@ public class CCUMSocialController {
 			public void run() {
 				// 打开分享面板
 				new ShareAction(mActivity).setDisplayList(disfinal).setShareboardclickCallback(shareBoardlistener)
-				.open(config);
+						.open(config);
 			}
 		});
 
@@ -326,18 +344,19 @@ public class CCUMSocialController {
 
 		@Override
 		public void onclick(SnsPlatform snsPlatform, final SHARE_MEDIA share_media) {
+			Log.e("xxxxxx  share_media="+share_media+"    "+getPlatformInt(share_media));
 			OnBoard(getPlatformInt(share_media));
 
 		}
 	};
 	/**˙
 	 * 直接分享到某个平台, 不打开分享面板, 直接底层分享
-	 * 
+	 *
 	 * @param platform
 	 *            平台对应的字符串
 	 */
 	public static void directShare(final int platform,final String text,final String title,final String targeturl,final String image) {
-
+		Log.e("xxxxxx 44444");
 		// 检测平台的有效性
 		if (!isPlatformValid(platform)) {
 			return;
@@ -351,7 +370,7 @@ public class CCUMSocialController {
 			@Override
 			public void run() {
 //				platformShareCotent temp = map.get(getPlatform(platform).toString());
-				
+
 //				if(TextUtils.isEmpty(text)){
 //					text = null;
 //				}
@@ -360,24 +379,28 @@ public class CCUMSocialController {
 //				}
 //				if(TextUtils.isEmpty(title)){
 //					title = null;
-//					
+//
 //				}
 //				if(TextUtils.isEmpty(targeturl)){
 //					targeturl = null;
-//					
+//
 //				}
-			
-				new ShareAction(mActivity).setPlatform(getPlatform(platform))
-				.withText(text)
-			.withMedia(getUmImage(image))
-				.withTargetUrl(targeturl)
-				.withTitle(title)
-				.setCallback(umShareListener)
-						.share();
-//				shareAction.setPlatform(getPlatform(platform));
-//				shareAction.withFollow()
-//				shareAction.setCallback(umShareListener);
-//				shareAction.share();
+				Log.e("xxxxxx 33333");
+				ShareAction shareAction = new ShareAction(mActivity);
+				if (TextUtils.isEmpty(targeturl)) {
+					Log.e("xxxxxx 1111");
+					shareAction.setPlatform(getPlatform(platform)).withText(text).setCallback(umShareListener)
+							.withMedia(getUmImage(image)).share();
+				}else {
+					Log.e("xxxxxx 2222");
+					UMWeb web = new UMWeb(targeturl);
+					web.setThumb(getUmImage(image));
+					web.setTitle(title);
+					web.setDescription(text);
+					shareAction.setPlatform(getPlatform(platform)).withText(text).setCallback(umShareListener)
+							.withMedia(web).share();
+				}
+
 			}
 		});
 
@@ -399,30 +422,30 @@ public class CCUMSocialController {
 			return new UMImage(mActivity, new File(url));
 		}
 		return null;
-		
+
 	}
 
-	private static Bitmap getImageFromAssetsFile(String fileName)  
-	  {  
-	      Bitmap image = null;  
-	      AssetManager am = mActivity.getResources().getAssets();  
-	      try  
-	      {  
-	          InputStream is = am.open(fileName.replace("assets/", ""));  
-	          image = BitmapFactory.decodeStream(is);  
-	          is.close();  
-	      }  
-	      catch (IOException e)  
-	      {  
-	          e.printStackTrace();  
-	      }  
-	  
-	      return image;  
-	  
-	  }
+	private static Bitmap getImageFromAssetsFile(String fileName)
+	{
+		Bitmap image = null;
+		AssetManager am = mActivity.getResources().getAssets();
+		try
+		{
+			InputStream is = am.open(fileName.replace("assets/", ""));
+			image = BitmapFactory.decodeStream(is);
+			is.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+
+		return image;
+
+	}
 	/**
 	 * 判断某个平台是否授权
-	 * 
+	 *
 	 * @param platform
 	 *            平台的字符串表示
 	 * @return 返回true则表示该平台已经授权, 否则为未授权.
@@ -441,7 +464,7 @@ public class CCUMSocialController {
 
 	/**
 	 * 设置友盟的app key, 也可以通过manifest指定
-	 * 
+	 *
 	 * @param text
 	 */
 	public static void setUmengAppkey(String appkey) {
@@ -453,7 +476,7 @@ public class CCUMSocialController {
 
 	/**
 	 * 设置要分享的文字内容
-	 * 
+	 *
 	 * @param text
 	 */
 	public static void setShareContent(String text) {
@@ -463,7 +486,7 @@ public class CCUMSocialController {
 	}
 	/**
 	 * 获取用户信息
-	 * 
+	 *
 	 * @param text
 	 */
 	public static void getplatformInfo(final int platform) {
@@ -476,7 +499,7 @@ public class CCUMSocialController {
 			@Override
 			public void run() {
 
-				
+
 				mShareAPI.getPlatformInfo(mActivity, getPlatform(platform), mAuthListener);
 
 			}
@@ -484,7 +507,7 @@ public class CCUMSocialController {
 	}
 	/**
 	 * 设置要分享的图片路径或者url,或者资源名
-	 * 
+	 *
 	 * @param imgName
 	 *            图片的本地路径或者url,
 	 *            如果是url则必须以http://或者https://开头.assets下的图片资源需要传递assets
@@ -550,7 +573,7 @@ public class CCUMSocialController {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param fullname
 	 * @return
 	 */
@@ -563,7 +586,7 @@ public class CCUMSocialController {
 
 	/**
 	 * 设置是否开启log
-	 * 
+	 *
 	 * @param flag
 	 */
 	protected static void setAndroidLogEnable(boolean flag) {
@@ -583,13 +606,13 @@ public class CCUMSocialController {
 
 	/**
 	 * 设置用户点击某条分享时跳转到的目标页面
-	 * 
+	 *
 	 * @param targetUrl
 	 */
 	public static void setTargetUrl(String targetUrl) {
 		if (!TextUtils.isEmpty(targetUrl)
 				&& SocializeNetUtils.startWithHttp(targetUrl)) {
-			shareAction.withTargetUrl(targetUrl);
+			//	shareAction.withTargetUrl(targetUrl);
 		}
 		Log.d(TAG, "### target url : " + TARGET_URL);
 	}
@@ -597,21 +620,21 @@ public class CCUMSocialController {
 		shareAction.withMedia(new UMImage(mActivity, targetUrl));
 	}
 	public static void setPlatformShareContent(int platform, String text,
-			String imagePath, String title, String targetUrl) {
+											   String imagePath, String title, String targetUrl) {
 		//if (map.containsKey(getPlatform(platform).toString())) {
-			platformShareCotent temp = new platformShareCotent();
-			temp.text = text;
-			temp.imagepath = imagePath;
-			temp.title = title;
-			temp.targeturl = targetUrl;
-			map.put(getPlatform(platform).toString(), temp);
+		platformShareCotent temp = new platformShareCotent();
+		temp.text = text;
+		temp.imagepath = imagePath;
+		temp.title = title;
+		temp.targeturl = targetUrl;
+		map.put(getPlatform(platform).toString(), temp);
 		//}
-		
+
 	}
 	public static void setPlatformShareContent(String targetUrl) {
 		if (!TextUtils.isEmpty(targetUrl)
 				&& SocializeNetUtils.startWithHttp(targetUrl)) {
-			shareAction.withTargetUrl(targetUrl);
+			//shareAction.withTargetUrl(targetUrl);
 		}
 		Log.d(TAG, "### target url : " + TARGET_URL);
 	}
@@ -624,7 +647,7 @@ public class CCUMSocialController {
 	/**
 	 * 要支持的新平台, 可以添加的平台主要有微信,微信朋友圈,QQ,易信,来往等. 具体参考线上文档
 	 * http://dev.umeng.com/social/android /share/specific-integration
-	 * 
+	 *
 	 * @param platform
 	 *            平台的字符串表示
 	 * @param appkey
@@ -723,12 +746,12 @@ public class CCUMSocialController {
 
 	/**
 	 * 设置平台顺序, 没有的平台则添加, 内置的但是没有给出的则移除.
-	 * 
+	 *
 	 * @param platforms
 	 *            平台的顺序数组
 	 */
 	public static void setPlatforms(final int[] platforms) {
-			
+
 		// 运行在主线程
 		runOnMainThread(new Runnable() {
 
@@ -747,23 +770,23 @@ public class CCUMSocialController {
 	}
 	public static void setWeiXinAppInfo(String appid,String appkey) {
 
-		
+
 
 	}
-public static void setRenrenAppInfo(String i,String appid,String appkey) {
+	public static void setRenrenAppInfo(String i,String appid,String appkey) {
 
-		
+
 
 	}
-public static void supportSsoAuthorization(int i,String URL) {
-			Config.REDIRECT_URL = URL;
-	
+	public static void supportSsoAuthorization(int i,String URL) {
+		//	Config.REDIRECT_URL = URL;
 
-}
+
+	}
 
 	/**
 	 * 平台是否配置在SDK了
-	 * 
+	 *
 	 * @param target
 	 * @return
 	 */
@@ -789,7 +812,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 使得runnable中的代码运行在opengl线程, 即cocos2d-x的opengl线程
-	 * 
+	 *
 	 * @param runnable
 	 */
 	private static void runOnOpenGLThread(Runnable runnable) {
@@ -801,18 +824,18 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 将操作封装在Runnable中, 使之运行在Android主线程
-	 * 
+	 *
 	 * @param runnable
 	 */
 	private static void runOnMainThread(Runnable runnable) {
 		mSDKHandler.postDelayed(runnable, DELAY_MS);
 	}
-	 public static void runNativeCallback(Runnable runnable)
-     {
-           Cocos2dxGLSurfaceView.getInstance().queueEvent(runnable);
-      }
+	public static void runNativeCallback(Runnable runnable)
+	{
+		Cocos2dxGLSurfaceView.getInstance().queueEvent(runnable);
+	}
 	/**
-	 * 
+	 *
 	 * @param platform
 	 *            要检测的平台
 	 * @return
@@ -828,7 +851,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 设置QQ和QQ空间的app id
-	 * 
+	 *
 	 * @param appid
 	 */
 	public static void setQQAndQzoneAppIdWithAppKey(String appid, String appKey) {
@@ -840,7 +863,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 设置微信和微信朋友圈的app id
-	 * 
+	 *
 	 * @param appid
 	 */
 	public static void setWeiXinAppId(String appid) {
@@ -850,7 +873,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 设置facebook app id
-	 * 
+	 *
 	 * @param appid
 	 */
 	public static void setFacebookAppId(String appid) {
@@ -860,7 +883,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 设置易信和易信朋友圈的app id
-	 * 
+	 *
 	 * @param appid
 	 */
 	public static void setYiXinAppKey(String appid) {
@@ -870,7 +893,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 设置来往和来往动态的app id
-	 * 
+	 *
 	 * @param appid
 	 */
 	public static void setLaiwangAppId(String appid) {
@@ -880,7 +903,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 设置来往和来往动态的app key
-	 * 
+	 *
 	 * @param appid
 	 */
 	public static void setLaiwangAppKey(String appkey) {
@@ -890,7 +913,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 设置来往和来往动态的app name
-	 * 
+	 *
 	 * @param appName
 	 */
 	public static void setLaiwangAppName(String appName) {
@@ -925,7 +948,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 		@Override
 		public void onComplete(final SHARE_MEDIA share_media, int i, final Map<String, String> map) {
 			// 运行在gl线程
-			
+
 			runOnOpenGLThread(new Runnable() {
 
 				@Override
@@ -939,7 +962,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 		@Override
 		public void onError(final SHARE_MEDIA share_media, int i, final Throwable throwable) {
-			
+
 			runOnOpenGLThread(new Runnable() {
 
 				@Override
@@ -952,7 +975,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 		@Override
 		public void onCancel(final SHARE_MEDIA share_media, int i) {
-			
+
 			runOnOpenGLThread(new Runnable() {
 
 				@Override
@@ -964,7 +987,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 		}
 
 		/**
-		 * 
+		 *
 		 * @param data
 		 *            授权的数据
 		 * @return 如果含有access_token则获取access_token和过期时间, 传递到native层
@@ -972,7 +995,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 		private String[] getAuthData(Bundle data) {
 			if (data != null
 					&& (data.containsKey("access_token") || data
-							.containsKey("access_secret"))) {
+					.containsKey("access_secret"))) {
 				String[] authData = new String[3];
 				// 有的字段为secret
 				if (data.containsKey("access_secret")) {
@@ -993,14 +1016,14 @@ public static void supportSsoAuthorization(int i,String URL) {
 		}
 		private String[] getAuthMap(Map<String, String> data) {
 
-				String[] authData = new String[data.size()];
-				int i = 0;
-				for (String key : data.keySet()) {
-					Log.e("xxxxxx stringvalue="+ data.get(key));
-					authData[i] = data.get(key);
-					i++;
-					  }
-				return authData;
+			String[] authData = new String[data.size()];
+			int i = 0;
+			for (String key : data.keySet()) {
+				Log.e("xxxxxx stringvalue="+ data.get(key));
+				authData[i] = data.get(key);
+				i++;
+			}
+			return authData;
 
 		}
 		private String[] getAuthKey(Map<String, String> data) {
@@ -1022,15 +1045,21 @@ public static void supportSsoAuthorization(int i,String URL) {
 //
 //				return authData;
 //			} else {
-				String[] authData = new String[data.size()];
-				int i = 0;
-				for (String key : data.keySet()) {
-					Log.e("xxxxxx stringkey="+key);
-					authData[i] = key;
-					i++;
-					  }
-				return authData;
+			String[] authData = new String[data.size()];
+			int i = 0;
+			for (String key : data.keySet()) {
+				Log.e("xxxxxx stringkey="+key);
+				authData[i] = key;
+				i++;
+			}
+			return authData;
 //			}
+		}
+
+		@Override
+		public void onStart(SHARE_MEDIA arg0) {
+			// TODO Auto-generated method stub
+
 		}
 	};
 
@@ -1041,14 +1070,14 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 回调授权的onComplete方法到native层
-	 * 
+	 *
 	 * @param value
 	 *            授权信息, 包含token等, 包含access_token, 过期时间expires_in
 	 * @param platform
 	 *            平台
 	 */
 	private native static void OnAuthorizeComplete(int platform, int stCode,
-			String[] value,String[] key);
+												   String[] value,String[] key);
 
 	/******************************************************************************
 	 * 分享回调接口,会调用native层对应的回调方法, 开发者可以在Java或者native层进行相应的处理
@@ -1091,12 +1120,18 @@ public static void supportSsoAuthorization(int i,String URL) {
 //
 //					}
 //					else {
-						
-						OnShareComplete(getPlatformInt(share_media), -1,
-								share_media.toString()+"share cancle");
+
+					OnShareComplete(getPlatformInt(share_media), -1,
+							share_media.toString()+"share cancle");
 //					}
 				}
 			});
+		}
+
+		@Override
+		public void onStart(SHARE_MEDIA arg0) {
+			// TODO Auto-generated method stub
+
 		}
 	};
 //	private static SnsPostListener mSocialShareListener = new SnsPostListener() {
@@ -1148,7 +1183,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 回调分享的onComplete方法到native层
-	 * 
+	 *
 	 * @param platform
 	 *            平台
 	 * @param eCode
@@ -1157,10 +1192,10 @@ public static void supportSsoAuthorization(int i,String URL) {
 	 *            UMSocialService的属性容器
 	 */
 	private native static void OnShareComplete(int platform, int eCode,
-			String descriptor);
+											   String descriptor);
 	/**
 	 * 回调分享的board方法到native层
-	 * 
+	 *
 	 * @param platform
 	 *            平台
 	 */
@@ -1169,7 +1204,7 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 通过整型获取对应的平台, C++中使用enum常量来代表平台
-	 * 
+	 *
 	 * @param location
 	 * @return
 	 */
@@ -1183,13 +1218,14 @@ public static void supportSsoAuthorization(int i,String URL) {
 
 	/**
 	 * 获取平台对应的整型号码
-	 * 
+	 *
 	 * @param platform
 	 *            对应的平台
 	 * @return the index of the first occurrence of the object or -1 if the
 	 *         object was not found.
 	 */
 	private static int getPlatformInt(SHARE_MEDIA platform) {
+		Log.e("xxxxxx platform="+platform);
 		return mPlatformsList.indexOf(platform);
 	}
 

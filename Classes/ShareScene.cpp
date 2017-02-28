@@ -142,16 +142,26 @@ void shareCallback(int platform, int stCode, string& errorMsg) {
 }
 void boardCallback(int platform) {
     
-       log("platform num is : %d", platform);
-    if (platform == QQ) {
-        CCUMSocialSDK *sdk = CCUMSocialSDK::create();
 
-        sdk->directShare(QQ,
-                         "Umeng Social Cocos2d-x SDK -->  qqshare   DIFFERENT CONTENT","title" ,"","",
-                         share_selector(shareCallback));
+        CCLog("platform num is : %d", platform);
+     if (platform == QQ) {
+
+         CCUMSocialSDK *sdk = CCUMSocialSDK::create();
+
+         sdk->directShare(QQ,
+                          "Umeng Social Cocos2d-x SDK -->  qqshare   DIFFERENT CONTENT","title" ,"","res/closenormal",
+                          share_selector(shareCallback));
 
 
-    }
+     }
+     else{
+
+     	   CCUMSocialSDK *sdk = CCUMSocialSDK::create();
+         	        sdk->directShare(platform,
+     	                         "Umeng Social Cocos2d-x SDK -->  qqshare   DIFFERENT CONTENT","title" ,"","CloseSelected.png",
+     	                         share_selector(shareCallback));
+
+     }
     
 }
 void boardDismissCallback() {
@@ -212,21 +222,13 @@ void Share::boardcustomShare(Ref* pSender) {
     CCUMSocialSDK *sdk = CCUMSocialSDK::create( );
     vector<int>* platforms = new vector<int>();
     platforms->push_back(SINA);
-    platforms->push_back(RENREN);
-    platforms->push_back(DOUBAN);
-    platforms->push_back(TENCENT_WEIBO);
-    platforms->push_back(INSTAGRAM);
-    platforms->push_back(QZONE);
-    platforms->push_back(QQ);
-    platforms->push_back(SMS);
-    platforms->push_back(YIXIN);
-    platforms->push_back(YIXIN_CIRCLE);
-    platforms->push_back(LAIWANG);
-    platforms->push_back(LAIWANG_CIRCLE);
-    platforms->push_back(WEIXIN);
-    platforms->push_back(WEIXIN_CIRCLE);
-    platforms->push_back(TWITTER);
-    platforms->push_back(FACEBOOK);
+      platforms->push_back(WEIXIN);
+      platforms->push_back(WEIXIN_CIRCLE);
+      platforms->push_back(QZONE);
+      platforms->push_back(QQ);
+
+      platforms->push_back(FACEBOOK);
+      platforms->push_back(TWITTER);
     sdk->setBoardDismissCallback(boarddismiss_selector(boardDismissCallback));
     sdk->openCustomShare(platforms, board_selector(boardCallback));
     
