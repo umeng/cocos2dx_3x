@@ -192,7 +192,7 @@ void Share::qqShare(Ref* pSender) {
 void Share::sinaShare(Ref* pSender) {
     CCUMSocialSDK *sdk = CCUMSocialSDK::create();
       sdk->directShare(SINA,
-                     "Umeng Social Cocos2d-x SDK -->  qqshare   testing","title" ,"https://wsq.umeng.com/","http://dev.umeng.com/images/tab2_1.png",
+                     "Umeng Social Cocos2d-x SDK -->  qqshare   testing","title" ,"https://wsq.umeng.com/","https://dev.umeng.com/images/tab2_1.png",
                      share_selector(shareCallback));
 }
 void Share::wxShare(Ref* pSender) {
@@ -200,7 +200,7 @@ void Share::wxShare(Ref* pSender) {
     
 
     sdk->directShare(WEIXIN,
-                     "Umeng Social Cocos2d-x SDK -->  qqshare   testing", "title" ,"https://wsq.umeng.com/","http://dev.umeng.com/images/tab2_1.png",
+                     "Umeng Social Cocos2d-x SDK -->  qqshare   testing", "title" ,"https://wsq.umeng.com/","https://dev.umeng.com/images/tab2_1.png",
                      share_selector(shareCallback));
 
 }
