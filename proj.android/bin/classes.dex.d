@@ -42,8 +42,8 @@
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/dexedLibs/SocialSDK_facebook-d0c153a731d0eb1f56e3e8ac827e3e1b.jar \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/dexedLibs/SocialSDK_email-1b3440a1f698f6f625648ef162be8153.jar \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/dexedLibs/SocialSDK_sms-e2ad64795a35a6b5a0f1743b2b103109.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/dexedLibs/wechat-sdk-android-with-mta-1.1.6-d5017f5d92890e55a388e63169d9daca.jar \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/dexedLibs/libapshare-3a62a200a8276951fedf98ee25f00382.jar \
-/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/dexedLibs/wechat-sdk-android-with-mta-1.0.2-2a09ebb0bfadd47349471348b48f3e9a.jar \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/dexedLibs/mta-sdk-1.6.2-b48b87c16c8d4e93cc4962291dd3678c.jar \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/dexedLibs/android-support-v4-39c6476036964d3d8d2912d6b17a9f24.jar \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/bin/dexedLibs/SocialSDK_twitter-476c5768d3af9c64b8025e36254469e1.jar \

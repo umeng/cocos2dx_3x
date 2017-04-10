@@ -2,6 +2,7 @@ package com.umeng.social;
 
 import android.app.Application;
 
+import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 
 /**
@@ -20,5 +21,7 @@ public class CCApp extends Application{
         PlatformConfig.setLaiwang("laiwangd497e70d4", "d497e70d4c3e4efeab1381476bac4c5e");
         PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
         PlatformConfig.setTwitter("3aIN7fuF685MuZ7jtXkQxalyi", "MK6FEYG63eWcpDFgRYw4w9puJhzDl0tyuqWjZ3M7XJuuG7mMbO");
+   
     }
+   
 }

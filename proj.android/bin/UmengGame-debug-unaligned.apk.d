@@ -5,8 +5,8 @@
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_facebook.jar \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_email.jar \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_sms.jar \
+/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/wechat-sdk-android-with-mta-1.1.6.jar \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/libapshare.jar \
-/Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/wechat-sdk-android-with-mta-1.0.2.jar \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/mta-sdk-1.6.2.jar \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/android-support-v4.jar \
 /Users/umeng/Documents/source/cocos2sx3.12/UmengGame/proj.android/libs/SocialSDK_twitter.jar \
