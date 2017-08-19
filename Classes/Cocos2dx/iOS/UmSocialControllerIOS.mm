@@ -384,9 +384,6 @@ void UmSocialControllerIOS::openShareWithImagePath(vector<int>* platform, const 
     
   }
 
-
-
-
 void UmSocialControllerIOS::openLog(bool flag)
 {
    [[UMSocialManager defaultManager] openLog:YES];
@@ -400,25 +397,23 @@ void UmSocialControllerIOS::directShare(const char* text, const char* title, con
     
     image = getUIImageFromFilePath(imagePath);
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    messageObject.text = nstext;
+    
     if (nstargeturl==nil||nstargeturl.length==0) {
         if (image==nil) {
             
-            messageObject.text =  nstext;
         }else{
             UMShareImageObject *shareObject = [[UMShareImageObject alloc] init];
             [shareObject setShareImage:image];
             messageObject.shareObject = shareObject;
         }
     }else{
-        messageObject.text = [NSString stringWithUTF8String:text];
         UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:nstitle descr:[NSString stringWithUTF8String:text] thumImage:image];
         //设置网页地址
         shareObject.webpageUrl =nstargeturl;
         
         //分享消息对象设置分享内容对象
         messageObject.shareObject = shareObject;
-        
-        
     }
     [[UMSocialManager defaultManager] shareToPlatform:getPlatformString(platform) messageObject:messageObject currentViewController:getViewController() completion:^(id data, NSError *error) {
         int code;
@@ -443,6 +438,5 @@ void UmSocialControllerIOS::directShare(const char* text, const char* title, con
             }
         }
         callback(platform, code,asserstring(message));
-        
     }];
 }
